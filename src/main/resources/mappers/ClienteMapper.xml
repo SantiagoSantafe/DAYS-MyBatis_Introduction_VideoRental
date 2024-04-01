@@ -5,6 +5,38 @@
   
 <mapper namespace="edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ClienteMapper">
 
+  <select parameterType="map" id="consultarClientes" resultMap="ClienteResult">
+      	select
+    c.nombre,
+    c.documento,
+    c.telefono,
+    c.direccion,
+    c.email,
+    c.vetado
+    FROM VI_CLIENTES as c
+  </select>
+
+
+<select parameterType="map" id="consultarCliente" resultMap="ClienteResult" >
+      	select
+    c.nombre,
+    c.documento,
+    c.telefono,
+    c.direccion,
+    c.email,
+    c.vetado
+    FROM VI_CLIENTES as c where c.documento = #{idcli}
+  </select>
+
+  <resultMap type='Cliente' id='ClienteResult'>
+    <result property='documento' column='documento'/>
+    <result property='nombre' column='nombre'/>
+    <result property='telefono' column='telefono'/>
+    <result property='direccion' column='direccion'/>
+    <result property='email' column='email'/>
+    <result property='vetado' column='vetado'/>
+</resultMap>
+
 
           	
 </mapper>

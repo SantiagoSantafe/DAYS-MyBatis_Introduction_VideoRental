@@ -20,6 +20,7 @@ public class Cliente implements Serializable{
     private ArrayList<ItemRentado> rentados; 
 
     public Cliente() {
+        this.rentados = new ArrayList<>();
     }
 
     public Cliente(String nombre, long documento, String telefono, String direccion, String email, boolean vetado, ArrayList<ItemRentado> rentados) {   
@@ -104,6 +105,7 @@ public class Cliente implements Serializable{
     public String toString() {
         return "Cliente{" + "nombre=" + nombre + ", documento=" + documento + ", rentados=\n\t" + rentados + '}';
     }
+
 
    
     

@@ -39,19 +39,19 @@ public class Item implements Serializable{
     
     
     
-    public TipoItem getTipo() {
+    public TipoItem gettipoItem() {
         return tipo;
     }
 
-    public void setTipo(TipoItem tipo) {
+    public void settipoItem(TipoItem tipo) {
         this.tipo = tipo;
     }
 
-    public int getId() {
+    public int getid() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setid(int id) {
         this.id = id;
     }
 
@@ -69,7 +69,7 @@ public class Item implements Serializable{
         return descripcion;
     }
 
-    public void setDescrpcion(String descrpcion) {
+    public void setDescripcion(String descrpcion) {
         this.descripcion = descrpcion;
     }
 

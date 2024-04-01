@@ -17,24 +17,24 @@ public class ItemRentado implements Serializable {
     private int id;
 
     private Item item;
-    private Date fechainiciorenta;
-    private Date fechafinrenta;
+    private Date fechaInicioRenta;
+    private Date fechaFinRenta;
 
-    public ItemRentado(int id, Item item, Date fechainiciorenta, Date fechafinrenta) {
+    public ItemRentado(int id, Item item, Date fechaInicioRenta, Date fechaFinRenta) {
         this.id = id;
         this.item = item;
-        this.fechainiciorenta = fechainiciorenta;
-        this.fechafinrenta = fechafinrenta;
+        this.fechaInicioRenta = fechaInicioRenta;
+        this.fechaFinRenta = fechaFinRenta;
     }
 
     public ItemRentado() {
     }
 
-    public int getId() {
+    public int getid() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setid(int id) {
         this.id = id;
     }
 
@@ -46,25 +46,25 @@ public class ItemRentado implements Serializable {
         this.item = item;
     }
 
-    public Date getFechainiciorenta() {
-        return fechainiciorenta;
+    public Date getfechaInicioRenta() {
+        return fechaInicioRenta;
     }
 
-    public void setFechainiciorenta(Date fechainiciorenta) {
-        this.fechainiciorenta = fechainiciorenta;
+    public void setfechaInicioRenta(Date fechaInicioRenta) {
+        this.fechaInicioRenta = fechaInicioRenta;
     }
 
-    public Date getFechafinrenta() {
-        return fechafinrenta;
+    public Date getfechaFinRenta() {
+        return fechaFinRenta;
     }
 
-    public void setFechafinrenta(Date fechafinrenta) {
-        this.fechafinrenta = fechafinrenta;
+    public void setfechaFinRenta(Date fechaFinRenta) {
+        this.fechaFinRenta = fechaFinRenta;
     }
 
     @Override
     public String toString() {
-        return "ItemRentado{" + "id=" + id + ", item=" + item + ", fechainiciorenta=" + fechainiciorenta + ", fechafinrenta=" + fechafinrenta + '}';
+        return "ItemRentado{" + "id=" + id + ", item=" + item + ", fechaInicioRenta=" + fechaInicioRenta + ", fechaFinRenta=" + fechaFinRenta + '}';
     }
 
     
