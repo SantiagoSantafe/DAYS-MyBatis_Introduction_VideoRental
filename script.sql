@@ -1,14 +1,25 @@
-SELECT c.nombre, c.documento, c.telefono, c.direccion, c.email, c.vetado, 
-       ir.id AS ir_id, ir.fechainiciorenta AS ir_fechainiciorenta, ir.fechafinrenta AS ir_fechafinrenta,
-       i.id AS it_id, i.nombre AS it_nombre, i.descripcion AS it_descripcion,
-       i.fechalanzamiento AS it_fechalanzamiento, i.tarifaxdia AS it_tarifaxdia,
-       i.formatorenta AS it_formatorenta, i.genero AS it_genero,
-       ti.id AS ti_id, ti.descripcion AS ti_descripcion
-FROM VI_CLIENTES c
-LEFT JOIN VI_ITEMRENTADO ir ON c.documento = ir.CLIENTES_documento
-LEFT JOIN VI_ITEMS i ON ir.ITEMS_id = i.id AND i.id = ir.id
-LEFT JOIN VI_TIPOITEM ti ON i.TIPOITEM_id = ti.id AND ti.id = i.id
+select
+    c.nombre,
+    c.documento,
+    c.telefono,
+    c.direccion,
+    c.email,
+    c.vetado,
+    ir.id as ir_id,
+    ir.fechainiciorenta as ir_fechainiciorenta,
+    ir.fechafinrenta as_fechafinrenta,
+    i.id as i_id,
+    i.nombre as i_nombre,
+    i.descripcion as i_descripcion,
+    i.fechalanzamiento as i_fechalanzamiento,
+    i.tarifaxdia as i_tarifaxdia,
+    i.formatorenta as i_formatorenta ,
+    i.genero as i_genero,        
+    ti.id as ti_id,
+    ti.descripcion as ti_descripcion
+    FROM VI_CLIENTES as c 
+    left join VI_ITEMRENTADO as ir on c.documento=ir.CLIENTES_documento 
+    left join VI_ITEMS as i on ir.ITEMS_id=i.id 
+    left join VI_TIPOITEM as ti on i.TIPOITEM_id=ti.id 
 
-SELECT * from VI_TIPOITEM;
-
-SELECT * from VI_ITEMS;
+          SELECT id as i_id, nombre as i_nombre, descripcion as i_descripcion, fechalanzamiento as i_fechalanzamiento, tarifaxdia as i_tarifaxdia, formatorenta as i_formatorenta, genero as i_genero, TIPOITEM_id FROM VI_ITEMS;

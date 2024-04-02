@@ -51,6 +51,6 @@ INSERT INTO VI_ITEMS (id, nombre, descripcion, fechalanzamiento, tarifaxdia, for
 
 -- Para la tabla VI_ITEMRENTADO
 INSERT INTO VI_ITEMRENTADO (id,CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta) VALUES
- (1,123456789, 1, '2024-03-15', '2024-03-20'),
- (2,987654321, 2, '2024-03-10', '2024-03-18'),
- (3,555555555, 3, '2024-03-12', '2024-03-17')
+ (1,123456789, 1, '2024-03-15 00:00:00', '2024-03-20 00:00:00'),
+ (2,987654321, 2, '2024-03-10 00:00:00', '2024-03-18 00:00:00'),
+ (3,555555555, 3, '2024-03-12 00:00:00', '2024-03-17 00:00:00')

@@ -6,40 +6,19 @@
 <mapper namespace="edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ItemMapper">
 
     <select parameterType="map" id="consultarItems" resultMap="ItemResult">
-      SELECT id, nombre, descripcion, fechalanzamiento, tarifaxdia, formatorenta, genero, TIPOITEM_id FROM VI_ITEMS;
+      SELECT i.id as i_id, i.nombre as i_nombre, i.descripcion as i_descripcion, i.fechalanzamiento as i_fechalanzamiento, i.tarifaxdia as i_tarifaxdia, i.formatorenta as i_formatorenta, i.genero as i_genero, TIPOITEM_id FROM VI_ITEMS;
     </select>
 
-    <insert id="insertarItem" parameterType="item">
-    INSERT INTO VI_ITEMS (id, nombre, descripcion, fechalanzamiento, tarifaxdia, formatorenta, genero, TIPOITEM_id)
-    VALUES (#{item.id}, #{item.nombre}, #{item.descripcion}, #{item.fechaLanzamiento}, #{item.tarifaxDia}, #{item.formatoRenta}, #{item.genero}, #{item.tipo.id})
-    </insert>
-
     <resultMap id="ItemResult" type="Item">
-      <id property="id" column="id" />
-      <result property="nombre" column="nombre" />
-      <result property="descripcion" column="descripcion" />
-      <result property="fechaLanzamiento" column="fechalanzamiento" />
-      <result property="tarifaxDia" column="tarifaxdia" />
-      <result property="formatoRenta" column="formatorenta" />
-      <result property="genero" column="genero" />
-      <collection property='tipo' ofType='TipoItem' resultMap='TipoItemResult'></collection>
+      <id property="id" column="i_id" />
+      <result property="nombre" column="i_nombre" />
+      <result property="descripcion" column="i_descripcion" />
+      <result property="fechaLanzamiento" column="i_fechalanzamiento" />
+      <result property="tarifaxDia" column="i_tarifaxdia" />
+      <result property="formatoRenta" column="i_formatorenta" />
+      <result property="genero" column="i_genero" />
+      <collection property='tipo' ofType='TipoItem' resultMap='edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.TipoItemMapper.TipoItemResult'></collection>
     </resultMap>
 
-    <resultMap type='TipoItem' id='TipoItemResult'>
-      <result property="id" column="TIPOITEM_id" />
-      <result property='descripcion' column='COLUMNAS'/>   
-  </resultMap>
-
-
-<select parameterType="map" id="consultarCliente" resultMap="ClienteResult" >
-      	select
-    c.nombre,
-    c.documento,
-    c.telefono,
-    c.direccion,
-    c.email,
-    c.vetado
-    FROM VI_CLIENTES as c where c.documento = #{idcli}
-  </select>
   
 </mapper>
