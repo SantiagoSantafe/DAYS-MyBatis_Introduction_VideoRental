@@ -23,14 +23,12 @@
         public TipoItem() {
         }
         
-        
-        
 
-        public int getid() {
+        public int getId() {
             return id;
         }
 
-        public void setid(int ID) {
+        public void setId(int ID) {
             this.id = ID;
         }
 

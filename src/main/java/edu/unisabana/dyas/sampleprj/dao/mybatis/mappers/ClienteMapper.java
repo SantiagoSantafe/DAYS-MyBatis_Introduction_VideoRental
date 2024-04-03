@@ -5,14 +5,13 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import edu.unisabana.dyas.samples.entities.Cliente;
+import edu.unisabana.dyas.samples.entities.Item;
 
 /**
  *
  * @author cesarvefe
  */
-public interface ClienteMapper {
-    
-    public Cliente consultarCliente(int id); 
+public interface ClienteMapper { 
     
     /**
      * Registrar un nuevo item rentado asociado al cliente identificado
@@ -32,5 +31,11 @@ public interface ClienteMapper {
      * @return 
      */
     public List<Cliente> consultarClientes();
+
+    public void insertCliente(@Param("cliente")Cliente cli);
+
+    public Cliente consultarCliente(@Param("idcli") int id);
+
+    public void addItemRentado(@Param("idcli") int cliente, @Param("item")int itId, @Param("ITEMS_id") int itemId, @Param("fechaIn") Date fechaIn, @Param("fechaFin") Date fechaFin);
     
 }

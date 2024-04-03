@@ -39,19 +39,19 @@ public class Item implements Serializable{
     
     
     
-    public TipoItem gettipoItem() {
+    public TipoItem getTipoItem() {
         return tipo;
     }
 
-    public void settipoItem(TipoItem tipo) {
+    public void setTipoItem(TipoItem tipo) {
         this.tipo = tipo;
     }
 
-    public int getid() {
+    public int getId() {
         return id;
     }
 
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
