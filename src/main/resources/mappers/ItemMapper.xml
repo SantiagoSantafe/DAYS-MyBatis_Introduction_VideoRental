@@ -6,7 +6,7 @@
 <mapper namespace="edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ItemMapper">
 
     <select parameterType="map" id="consultarItems" resultMap="ItemResult">
-      SELECT i.id as i_id, i.nombre as i_nombre, i.descripcion as i_descripcion, i.fechalanzamiento as i_fechalanzamiento, i.tarifaxdia as i_tarifaxdia, i.formatorenta as i_formatorenta, i.genero as i_genero, TIPOITEM_id FROM VI_ITEMS;
+       SELECT i.id as i_id, i.nombre as i_nombre, i.descripcion as i_descripcion, i.fechalanzamiento as i_fechalanzamiento, i.tarifaxdia as i_tarifaxdia, i.formatorenta as i_formatorenta, i.genero as i_genero, TIPOITEM_id FROM VI_ITEMS as i;
     </select>
 
     <resultMap id="ItemResult" type="Item">
@@ -17,7 +17,7 @@
       <result property="tarifaxDia" column="i_tarifaxdia" />
       <result property="formatoRenta" column="i_formatorenta" />
       <result property="genero" column="i_genero" />
-      <collection property='tipo' ofType='TipoItem' resultMap='edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.TipoItemMapper.TipoItemResult'></collection>
+      <association property='tipo' javaType='TipoItem' resultMap='edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.TipoItemMapper.TipoItemResult'></association>
     </resultMap>
 
   
