@@ -22,32 +22,29 @@
 
         public TipoItem() {
         }
-        
-        
-        
 
-        public int getid() {
+        public int getId() {
             return id;
         }
 
-        public void setid(int ID) {
-            this.id = ID;
+        public void setId(int id) {
+            this.id = id;
         }
-
-        
 
         public String getDescripcion() {
             return descripcion;
         }
 
-        public void setDescripcion(String Descripcion) {
-            this.descripcion = Descripcion;
+        public void setDescripcion(String descripcion) {
+            this.descripcion = descripcion;
         }
 
         @Override
         public String toString() {
-            return "TipoItem{" + "id=" + id + ", descripcion=" + descripcion + '}';
+            return "TipoItem [id=" + id + ", descripcion=" + descripcion + "]";
         }
         
+        
+
         
     }
