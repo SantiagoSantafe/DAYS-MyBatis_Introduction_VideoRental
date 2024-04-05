@@ -10,7 +10,7 @@
   </select>
 
   <select parameterType="map" id="consultarItem" resultMap="ItemResult">
-      SELECT id, nombre, descripcion, fechalanzamiento, tarifaxdia, formatorenta, genero, TIPOITEM_id FROM VI_ITEMS
+      SELECT i.id as i_id, i.nombre as i_nombre, i.descripcion as i_descripcion, i.fechalanzamiento as i_fechalanzamiento, i.tarifaxdia as i_tarifaxdia, i.formatorenta as i_formatorenta, i.genero as i_genero, TIPOITEM_id FROM VI_ITEMS as i
       WHERE id = #{id};
   </select>
 

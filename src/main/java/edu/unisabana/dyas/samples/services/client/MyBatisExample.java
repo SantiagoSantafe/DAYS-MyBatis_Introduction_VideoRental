@@ -98,10 +98,10 @@ public class MyBatisExample {
         System.out.println("\n Guardando cliente nuevo.......");
 
         //Permite consultar uno de los items 
-        System.out.println("\n Consultar item 2" + im.consultarItem(2));
+        System.out.println("\n Consultar item 2: \n" + im.consultarItem(2));
 
         //permite consultar uno de los clientes
-        System.out.println("\n Cliente item 123456789" + cm.consultarCliente(123456789));
+        System.out.println("\n Cliente item 123456789: \n" + cm.consultarCliente(123456789));
         
         //agrega un iteem rentado al cliente
         System.out.println("\n Guardando item rentado nuevo.......");
