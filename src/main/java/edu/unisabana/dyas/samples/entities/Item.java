@@ -36,26 +36,27 @@ public class Item implements Serializable{
     public Item() {
     }
 
-    
+ 
     
     
     public TipoItem getTipoItem() {
         return tipo;
     }
 
+
     public void setTipoItem(TipoItem tipo) {
         this.tipo = tipo;
     }
 
+    
     public int getId() {
         return id;
     }
 
+    
     public void setId(int id) {
         this.id = id;
     }
-
-
 
     public String getNombre() {
         return nombre;
@@ -69,8 +70,8 @@ public class Item implements Serializable{
         return descripcion;
     }
 
-    public void setDescripcion(String descrpcion) {
-        this.descripcion = descrpcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Date getFechaLanzamiento() {
@@ -107,7 +108,9 @@ public class Item implements Serializable{
 
     @Override
     public String toString() {
-        return "Item{" + "tipo=" + tipo + ", id=" + id + ", nombre=" + nombre + ", tarifaxDia=" + tarifaxDia + '}';
+        return "Item [tipo=" + tipo + ", id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion
+                + ", fechaLanzamiento=" + fechaLanzamiento + ", tarifaxDia=" + tarifaxDia + ", formatoRenta="
+                + formatoRenta + ", genero=" + genero + "]";
     }
 
 

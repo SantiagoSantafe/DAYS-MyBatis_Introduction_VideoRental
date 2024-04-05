@@ -30,11 +30,11 @@ public class ItemRentado implements Serializable {
     public ItemRentado() {
     }
 
-    public int getid() {
+    public int getId() {
         return id;
     }
 
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,26 +46,28 @@ public class ItemRentado implements Serializable {
         this.item = item;
     }
 
-    public Date getfechaInicioRenta() {
+    public Date getFechaInicioRenta() {
         return fechaInicioRenta;
     }
 
-    public void setfechaInicioRenta(Date fechaInicioRenta) {
+    public void setFechaInicioRenta(Date fechaInicioRenta) {
         this.fechaInicioRenta = fechaInicioRenta;
     }
 
-    public Date getfechaFinRenta() {
+    public Date getFechaFinRenta() {
         return fechaFinRenta;
     }
 
-    public void setfechaFinRenta(Date fechaFinRenta) {
+    public void setFechaFinRenta(Date fechaFinRenta) {
         this.fechaFinRenta = fechaFinRenta;
     }
 
     @Override
     public String toString() {
-        return "ItemRentado{" + "id=" + id + ", item=" + item + ", fechaInicioRenta=" + fechaInicioRenta + ", fechaFinRenta=" + fechaFinRenta + '}';
+        return "ItemRentado [id=" + id + ", item=" + item + ", fechaInicioRenta=" + fechaInicioRenta
+                + ", fechaFinRenta=" + fechaFinRenta + "]";
     }
+
 
     
     
