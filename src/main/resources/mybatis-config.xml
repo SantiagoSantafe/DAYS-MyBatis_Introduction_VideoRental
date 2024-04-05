@@ -12,13 +12,17 @@
     <settings>
         <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
-    
+
     <typeAliases>
         <typeAlias type="edu.unisabana.dyas.samples.entities.Cliente" alias="Cliente"/>
         <typeAlias type="edu.unisabana.dyas.samples.entities.Item" alias="Item"/>
         <typeAlias type="edu.unisabana.dyas.samples.entities.ItemRentado" alias="ItemRentado"/>
         <typeAlias type="edu.unisabana.dyas.samples.entities.TipoItem" alias="TipoItem"/>
     </typeAliases>	
+
+    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.DateTypeHandler" />
+    </typeHandlers>
 
     <environments default="development">
         <environment id="development">

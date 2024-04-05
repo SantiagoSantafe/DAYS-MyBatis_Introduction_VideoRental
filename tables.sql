@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS VI_ITEMS (
   id INT NOT NULL,
   nombre VARCHAR(50) NOT NULL,
   descripcion VARCHAR(500) NOT NULL,
-  fechalanzamiento DATE NOT NULL,
+  fechalanzamiento DATETIME NOT NULL,
   tarifaxdia BIGINT NOT NULL,
   formatorenta VARCHAR(20) NOT NULL,
   genero VARCHAR(20) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS VI_ITEMRENTADO (
 -- Para la tabla VI_CLIENTES
 INSERT INTO VI_CLIENTES (documento, nombre, telefono, direccion, email, vetado) VALUES
 (123456789, 'Juan Perez', '1234567890', 'Calle 123', 'juan@example.com', 0),
-(987654321, 'Maria Gomez', '9876543210', s'Avenida 456', 'maria@example.com', 1),
+(987654321, 'Maria Gomez', '9876543210', 'Avenida 456', 'maria@example.com', 1),
 (555555555, 'Pedro Rodriguez', '5555555555', 'Carrera 789', 'pedro@example.com', 0);
 
 -- Para la tabla VI_TIPOITEM

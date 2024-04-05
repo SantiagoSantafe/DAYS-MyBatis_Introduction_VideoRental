@@ -36,6 +36,5 @@ public interface ClienteMapper {
 
     public Cliente consultarCliente(@Param("idcli") int id);
 
-    public void addItemRentado(@Param("idcli") int cliente, @Param("item")int itId, @Param("ITEMS_id") int itemId, @Param("fechaIn") Date fechaIn, @Param("fechaFin") Date fechaFin);
-    
+    public void addItemRentado(@Param("idcli") int cliente, @Param("item")int itId, @Param("ITEMS_id") int itemId, @Param("fechaIn") String fechaIn, @Param("fechaFin") String fechaFin);
 }

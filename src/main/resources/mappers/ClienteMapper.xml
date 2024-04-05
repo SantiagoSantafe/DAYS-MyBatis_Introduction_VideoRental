@@ -80,10 +80,10 @@ select
     VALUES (#{cliente.documento}, #{cliente.nombre}, #{cliente.telefono}, #{cliente.direccion}, #{cliente.email}, 0)
   </insert>
 
-  <insert id="addItemRentado" parameterType="java.util.Map">
-    INSERT INTO VI_ITEMRENTADO (id, CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta) 
+  <insert id="addItemRentado">
+    INSERT INTO VI_ITEMRENTADO (id, CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta)
     VALUES (#{idcli}, #{item}, #{ITEMS_id}, #{fechaIn}, #{fechaFin})
-  </insert>
+</insert>
 
           	
 </mapper>

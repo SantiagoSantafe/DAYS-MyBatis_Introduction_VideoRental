@@ -21,7 +21,10 @@ package edu.unisabana.dyas.samples.services.client;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -69,7 +72,9 @@ public class MyBatisExample {
         SqlSessionFactory sessionfact = getSqlSessionFactory();
 
         SqlSession sqlss = sessionfact.openSession();
-
+    
+        //para formato de fecha
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
         //Crear el mapper
         ClienteMapper cm=sqlss.getMapper(ClienteMapper.class);
@@ -82,13 +87,13 @@ public class MyBatisExample {
         System.out.println(im.consultarItems());
         
         //Permite crear un item nuevo
-        //TipoItem tipo = new TipoItem(7, "nada bro");
-        //Item nuevo = new Item(tipo, 7, "Papel", "Papel comestible", new Date(),  (long)200, "renta" , "m");
-        //im.insertarItem(nuevo);
+        TipoItem tipo = new TipoItem(7, "nada bro");
+        Item nuevo = new Item(tipo, 7, "Papel", "Papel comestible", new Date(),  (long)200, "renta" , "m");
+        im.insertarItem(nuevo);
 
         //Permite crear un cliente nuevo
-        //Cliente nuevoCli = new Cliente ("Juan", 010201012, "3155858555", "Avenida carrera", "correo@prueba.com");
-        //cm.insertCliente(nuevoCli);
+        Cliente nuevoCli = new Cliente ("Juan", 010201012, "3155858555", "Avenida carrera", "correo@prueba.com");
+        cm.insertCliente(nuevoCli);
 
         //Permite consultar uno de los items 
         System.out.println(im.consultarItem(7));
@@ -97,7 +102,7 @@ public class MyBatisExample {
         System.out.println(cm.consultarCliente(123456789));
         
         //agrega un iteem rentado al cliente
-        cm.addItemRentado(123456789, 5, 5, new Date(), new Date());
+        cm.addItemRentado(5, 123456789, 5, dateFormat.format(new Date()), dateFormat.format(new Date()));
         
         sqlss.commit();
         
