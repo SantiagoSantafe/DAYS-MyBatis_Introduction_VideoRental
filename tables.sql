@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS VI_ITEMS (
   id INT NOT NULL,
   nombre VARCHAR(50) NOT NULL,
   descripcion VARCHAR(500) NOT NULL,
-  fechalanzamiento DATE NOT NULL,
+  fechalanzamiento DATETIME NOT NULL,
   tarifaxdia BIGINT NOT NULL,
   formatorenta VARCHAR(20) NOT NULL,
   genero VARCHAR(20) NOT NULL,
@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS VI_ITEMRENTADO (
   id INT NOT NULL,
   CLIENTES_documento INTEGER NOT NULL,
   ITEMS_id INTEGER NOT NULL,
-  fechainiciorenta DATE NOT NULL,
-  fechafinrenta DATE NOT NULL
+  fechainiciorenta DATETIME NOT NULL,
+  fechafinrenta DATETIME NOT NULL
 );
 
 -- Para la tabla VI_CLIENTES
@@ -50,6 +50,11 @@ INSERT INTO VI_ITEMS (id, nombre, descripcion, fechalanzamiento, tarifaxdia, for
 (3, 'Martillo', 'Martillo de carpintero', '2023-02-15 00:00:00.00', 2000, 'Diario', 'Herramienta', 3);
 
 -- Para la tabla VI_ITEMRENTADO
+INSERT INTO VI_ITEMRENTADO (id, CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta) VALUES
+ (1, 123456789, 1, '2024-03-15 00:00:00.00', '2024-03-20 00:00:00.00'),
+ (2, 987654321, 2, '2024-03-10 00:00:00.00', '2024-03-18 00:00:00.00'),
+ (3, 555555555, 3, '2024-03-12 00:00:00.00', '2024-03-17 00:00:00.00');
+
 INSERT INTO VI_ITEMRENTADO (id, CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta) VALUES
  (1, 123456789, 1, '2024-03-15 00:00:00.00', '2024-03-20 00:00:00.00'),
  (2, 987654321, 2, '2024-03-10 00:00:00.00', '2024-03-18 00:00:00.00'),

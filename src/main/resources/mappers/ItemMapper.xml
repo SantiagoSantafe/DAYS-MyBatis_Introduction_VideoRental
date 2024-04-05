@@ -5,11 +5,21 @@
   
 <mapper namespace="edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ItemMapper">
 
-    <select parameterType="map" id="consultarItems" resultMap="ItemResult">
-       SELECT i.id as i_id, i.nombre as i_nombre, i.descripcion as i_descripcion, i.fechalanzamiento as i_fechalanzamiento, i.tarifaxdia as i_tarifaxdia, i.formatorenta as i_formatorenta, i.genero as i_genero, TIPOITEM_id FROM VI_ITEMS as i;
-    </select>
+  <select parameterType="map" id="consultarItems" resultMap="ItemResult">
+    SELECT i.id as i_id, i.nombre as i_nombre, i.descripcion as i_descripcion, i.fechalanzamiento as i_fechalanzamiento, i.tarifaxdia as i_tarifaxdia, i.formatorenta as i_formatorenta, i.genero as i_genero, TIPOITEM_id FROM VI_ITEMS as i;
+  </select>
 
-    <resultMap id="ItemResult" type="Item">
+  <select parameterType="map" id="consultarItem" resultMap="ItemResult">
+      SELECT i.id as i_id, i.nombre as i_nombre, i.descripcion as i_descripcion, i.fechalanzamiento as i_fechalanzamiento, i.tarifaxdia as i_tarifaxdia, i.formatorenta as i_formatorenta, i.genero as i_genero, TIPOITEM_id FROM VI_ITEMS as i
+      WHERE id = #{id};
+  </select>
+
+  <insert id="insertarItem" parameterType="map">
+      INSERT INTO VI_ITEMS (id, nombre, descripcion, fechalanzamiento, tarifaxdia, formatorenta, genero, TIPOITEM_id)
+      VALUES (#{item.id}, #{item.nombre}, #{item.descripcion}, #{item.fechaLanzamiento}, #{item.tarifaxDia}, #{item.formatoRenta}, #{item.genero}, #{item.tipo.id})
+  </insert>
+
+   <resultMap id="ItemResult" type="Item">
       <id property="id" column="i_id" />
       <result property="nombre" column="i_nombre" />
       <result property="descripcion" column="i_descripcion" />
@@ -20,5 +30,4 @@
       <association property='tipo' javaType='TipoItem' resultMap='edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.TipoItemMapper.TipoItemResult'></association>
     </resultMap>
 
-  
 </mapper>

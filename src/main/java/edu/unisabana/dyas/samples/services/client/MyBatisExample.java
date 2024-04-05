@@ -21,12 +21,21 @@ package edu.unisabana.dyas.samples.services.client;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ClienteMapper;
+import edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ItemMapper;
+import edu.unisabana.dyas.samples.entities.Cliente;
+import edu.unisabana.dyas.samples.entities.Item;
+import edu.unisabana.dyas.samples.entities.TipoItem;
 
 /**
  *
@@ -63,13 +72,40 @@ public class MyBatisExample {
         SqlSessionFactory sessionfact = getSqlSessionFactory();
 
         SqlSession sqlss = sessionfact.openSession();
-
+    
+        //para formato de fecha
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
-        //Crear el mapper y usarlo: 
+        //Crear el mapper
         ClienteMapper cm=sqlss.getMapper(ClienteMapper.class);
-        System.out.println(cm.consultarClientes());
+        ItemMapper im= sqlss.getMapper(ItemMapper.class);
+
+        //Consultar los clientes y sus rentados
+        System.out.println("\n Ver todos los clientes \n" + cm.consultarClientes());
+
+        //Consultar todos los Items
+        System.out.println("\n Ver todos los items \n" + im.consultarItems());
         
+        //Permite crear un item nuevo
+        TipoItem tipo = new TipoItem(7, "nada bro");
+        Item nuevo = new Item(tipo, 7, "Papel", "Papel comestible", new Date(),  (long)200, "renta" , "m");
+        im.insertarItem(nuevo);
+        System.out.println("\n Guardando item nuevo.......");
+
+        //Permite crear un cliente nuevo
+        Cliente nuevoCli = new Cliente ("Juan", 010201012, "3155858555", "Avenida carrera", "correo@prueba.com");
+        cm.insertCliente(nuevoCli);
+        System.out.println("\n Guardando cliente nuevo.......");
+
+        //Permite consultar uno de los items 
+        System.out.println("\n Consultar item 2: \n" + im.consultarItem(2));
+
+        //permite consultar uno de los clientes
+        System.out.println("\n Cliente item 123456789: \n" + cm.consultarCliente(123456789));
         
+        //agrega un iteem rentado al cliente
+        System.out.println("\n Guardando item rentado nuevo.......");
+        cm.addItemRentado(5, 123456789, 5, dateFormat.format(new Date()), dateFormat.format(new Date()));
         
         sqlss.commit();
         
