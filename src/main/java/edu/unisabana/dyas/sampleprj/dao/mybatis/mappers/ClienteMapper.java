@@ -22,15 +22,15 @@ public interface ClienteMapper {
      * @param fechainicio
      * @param fechafin 
      */
-    public void agregarItemRentadoACliente(int id, 
-            int idit, 
-            Date fechainicio,
-            Date fechafin);
+    public void agregarItemRentadoACliente(@Param("doc")int documento, 
+            @Param("idit")int idit, 
+            @Param("f_inicio")Date fechainicio,
+            @Param("f_fin")Date fechafin);
 
     /**
      * Consultar todos los clientes
      * @return 
      */
     public List<Cliente> consultarClientes();
-    
+    public void addCliente(@Param("cliente")Cliente cliente);
 }

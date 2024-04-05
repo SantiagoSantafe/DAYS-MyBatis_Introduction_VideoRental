@@ -13,5 +13,16 @@
         <result property="id" column="ti_id" />
         <result property='descripcion' column='ti_descripcion'/>   
       </resultMap>
+
+      
+      <insert id="addTipoItem" parameterType="map">
+      INSERT INTO VI_TIPOITEM (id,descripcion) VALUES (#{id}, #{desc})
+      </insert>
+      
+      <select parameterType="map" id="getTipoItem" resultMap="TipoItemResult" >
+          SELECT id as ti_id, descripcion as ti_descripcion FROM VI_TIPOITEM where id = #{id}
+      </select>
+    
+
                     
 </mapper>

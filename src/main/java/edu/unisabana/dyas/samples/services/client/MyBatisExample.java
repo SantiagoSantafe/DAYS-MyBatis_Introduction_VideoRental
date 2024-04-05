@@ -20,13 +20,20 @@ package edu.unisabana.dyas.samples.services.client;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import java.sql.SQLException;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ClienteMapper;
+import edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ItemMapper;
+import edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.TipoItemMapper;
+import edu.unisabana.dyas.samples.entities.Cliente;
+import edu.unisabana.dyas.samples.entities.Item;
+import edu.unisabana.dyas.samples.entities.TipoItem;
 
 /**
  *
@@ -42,7 +49,7 @@ public class MyBatisExample {
      */
     public static SqlSessionFactory getSqlSessionFactory() {
         SqlSessionFactory sqlSessionFactory = null;
-        if (sqlSessionFactory == null) {
+        if (sqlSessionFactory == null) { 
             InputStream inputStream;
             try {
                 inputStream = Resources.getResourceAsStream("mybatis-config.xml");
@@ -67,8 +74,33 @@ public class MyBatisExample {
         
         //Crear el mapper y usarlo: 
         ClienteMapper cm=sqlss.getMapper(ClienteMapper.class);
+        ItemMapper im = sqlss.getMapper(ItemMapper.class);
+        TipoItemMapper tim = sqlss.getMapper(TipoItemMapper.class);
         System.out.println(cm.consultarClientes());
         
+
+        
+        TipoItem ti = tim.getTipoItem(4);
+        if(ti == null){
+            tim.addTipoItem(4,"Alimento");
+        }else{
+            System.out.println("Ya existe un TipoItem con ese ID");
+        }
+        ti = tim.getTipoItem(4);
+        System.out.println(ti.getId());
+        System.out.println(ti.getDescripcion());
+        Item it = new Item(ti, 4, "Iphone", "Celular overpriced",  new Date(), 8500, "Diario", "Tecnologia");
+
+        Item prueba = im.consultarItem(4);
+        if(prueba == null){
+            im.insertarItem(it);
+        }
+        else{
+            System.out.println("Ya existe un item con ese ID");
+        }
+        cm.agregarItemRentadoACliente(123456789, 4, new Date(), new Date());
+        Cliente cliente = new Cliente("Andres Felipe Gomez", 741258963, "321458576", "Avenida Carrera Zipaquistan", "felipe gomez@gmail.com",false,null);
+        cm.addCliente(cliente);
         
         
         sqlss.commit();

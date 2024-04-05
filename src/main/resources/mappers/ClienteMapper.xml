@@ -13,7 +13,6 @@ select
     c.direccion,
     c.email,
     c.vetado,
-    ir.id as ir_id,
     ir.fechainiciorenta as ir_fechainiciorenta,
     ir.fechafinrenta as_fechafinrenta,
     i.id as i_id,
@@ -47,5 +46,14 @@ select
   <collection property='item' javaType='Item' resultMap='edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ItemMapper.ItemResult'></collection>
 </resultMap>
 
-          	
+
+  <insert id="agregarItemRentadoACliente" parameterType="map">
+  INSERT INTO VI_ITEMRENTADO (CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta) VALUES (#{doc}, #{idit}, #{f_inicio}, #{f_fin})
+  </insert>
+
+  <insert id="addCliente" parameterType="Cliente">
+  INSERT INTO VI_CLIENTES (documento, nombre, telefono, direccion, email, vetado)
+  VALUES (#{cliente.documento}, #{cliente.nombre}, #{cliente.telefono}, #{cliente.direccion}, #{cliente.email}, #{cliente.vetado})
+  </insert>
+
 </mapper>

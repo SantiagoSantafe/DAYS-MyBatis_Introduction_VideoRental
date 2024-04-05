@@ -20,5 +20,17 @@
       <association property='tipo' javaType='TipoItem' resultMap='edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.TipoItemMapper.TipoItemResult'></association>
     </resultMap>
 
+    
+    <select parameterType="map" id="consultarItem" resultMap="ItemResult" >
+      SELECT id, nombre, descripcion, fechalanzamiento, tarifaxdia, formatorenta, genero, TIPOITEM_id FROM VI_ITEMS where id = #{id}
+    </select>
+
+    <insert id="insertarItem" parameterType="item">
+    INSERT INTO VI_ITEMS (id, nombre, descripcion, fechalanzamiento, tarifaxdia, formatorenta, genero, TIPOITEM_id)
+    VALUES (#{item.id}, #{item.nombre}, #{item.descripcion}, #{item.fechaLanzamiento}, #{item.tarifaxDia}, #{item.formatoRenta}, #{item.genero}, #{item.tipo.id})
+    </insert>
+    
+    
+  
   
 </mapper>

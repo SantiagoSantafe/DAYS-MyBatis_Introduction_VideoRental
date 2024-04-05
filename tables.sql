@@ -23,14 +23,21 @@ CREATE TABLE IF NOT EXISTS VI_ITEMS (
   TIPOITEM_id INT NOT NULL
 );
 
+
+DROP TABLE IF EXISTS VI_ITEMRENTADO;
 CREATE TABLE IF NOT EXISTS VI_ITEMRENTADO (
-  id INT NOT NULL,
+  ID_RENTA INTEGER PRIMARY KEY AUTOINCREMENT,
   CLIENTES_documento INTEGER NOT NULL,
   ITEMS_id INTEGER NOT NULL,
   fechainiciorenta DATE NOT NULL,
   fechafinrenta DATE NOT NULL
 );
 
+
+    delete from VI_ClIENTES;
+    delete from VI_ITEMRENTADO;
+    delete from VI_ITEMS;
+    delete from VI_TIPOITEM;
 -- Para la tabla VI_CLIENTES
 INSERT INTO VI_CLIENTES (documento, nombre, telefono, direccion, email, vetado) VALUES
 (123456789, 'Juan Perez', '1234567890', 'Calle 123', 'juan@example.com', 0),
@@ -50,7 +57,7 @@ INSERT INTO VI_ITEMS (id, nombre, descripcion, fechalanzamiento, tarifaxdia, for
 (3, 'Martillo', 'Martillo de carpintero', '2023-02-15 00:00:00.00', 2000, 'Diario', 'Herramienta', 3);
 
 -- Para la tabla VI_ITEMRENTADO
-INSERT INTO VI_ITEMRENTADO (id, CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta) VALUES
- (1, 123456789, 1, '2024-03-15 00:00:00.00', '2024-03-20 00:00:00.00'),
- (2, 987654321, 2, '2024-03-10 00:00:00.00', '2024-03-18 00:00:00.00'),
- (3, 555555555, 3, '2024-03-12 00:00:00.00', '2024-03-17 00:00:00.00');
+INSERT INTO VI_ITEMRENTADO (CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta) VALUES
+ (123456789, 1, '2024-03-15 00:00:00.00', '2024-03-20 00:00:00.00'),
+ (987654321, 2, '2024-03-10 00:00:00.00', '2024-03-18 00:00:00.00'),
+ (555555555, 3, '2024-03-12 00:00:00.00', '2024-03-17 00:00:00.00');
