@@ -71,7 +71,7 @@ select
   <resultMap type='ItemRentado' id='ItemRentadoResult'>
     <id property='id' column='ir_id'></id>
     <result property='fechaInicioRenta' column='ir_fechainiciorenta'></result>
-    <result property='fechaFinRenta' column='ir_fechafinrenta' ></result>
+    <result property='fechaFinRenta' column='ir_fechainiciorenta' ></result>
     <collection property='item' javaType='Item' resultMap='edu.unisabana.dyas.sampleprj.dao.mybatis.mappers.ItemMapper.ItemResult'></collection>
   </resultMap>
 

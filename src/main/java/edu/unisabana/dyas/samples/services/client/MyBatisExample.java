@@ -74,7 +74,7 @@ public class MyBatisExample {
         SqlSession sqlss = sessionfact.openSession();
     
         //para formato de fecha
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat desiredFormat = new SimpleDateFormat("yyyy-MM-dd 00:00:00.000");
         
         //Crear el mapper
         ClienteMapper cm=sqlss.getMapper(ClienteMapper.class);
@@ -105,7 +105,8 @@ public class MyBatisExample {
         
         //agrega un iteem rentado al cliente
         System.out.println("\n Guardando item rentado nuevo.......");
-        cm.addItemRentado(5, 123456789, 5, dateFormat.format(new Date()), dateFormat.format(new Date()));
+        String formattedDate = desiredFormat.format(new Date());
+        cm.addItemRentado(5, 123456789, 5, formattedDate, formattedDate);
         
         sqlss.commit();
         
